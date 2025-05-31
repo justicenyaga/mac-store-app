@@ -125,15 +125,70 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                child: Center(
-                  child: Text(
-                    "Sign in",
-                    style: GoogleFonts.getFont(
-                      "Lato",
-                      fontSize: 17,
-                      color: Colors.white,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 278,
+                      top: 19,
+                      child: Opacity(
+                        opacity: 0.5,
+                        child: Container(
+                          width: 60,
+                          height: 60,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                              width: 12,
+                              color: const Color(0xFF103DE5),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    Positioned(
+                      left: 311,
+                      top: 36,
+                      child: Opacity(
+                        opacity: 0.3,
+                        child: Container(
+                          width: 5,
+                          height: 5,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(3),
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 281,
+                      top: -10,
+                      child: Opacity(
+                        opacity: 0.3,
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        "Sign in",
+                        style: GoogleFonts.getFont(
+                          "Lato",
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ],
