@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mac_store_app/views/screens/nav_screens/account_screen.dart';
+import 'package:mac_store_app/views/screens/nav_screens/cart_screen.dart';
+import 'package:mac_store_app/views/screens/nav_screens/favorite_screen.dart';
+import 'package:mac_store_app/views/screens/nav_screens/home_screen.dart';
+import 'package:mac_store_app/views/screens/nav_screens/stores_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,6 +14,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _pageIndex = 0;
+  final List<Widget> _pages = [
+    const HomeScreen(),
+    const FavoriteScreen(),
+    const StoresScreen(),
+    const CartScreen(),
+    const AccountScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +73,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+      body: _pages[_pageIndex],
     );
   }
 }
