@@ -22,6 +22,7 @@ class AuthController {
         city: "",
         locality: "",
         password: password,
+        token: "",
       );
       var response = await http.post(
         Uri.parse("$uri/api/signup"),
