@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:mac_store_app/global_variables.dart';
 import 'package:mac_store_app/models/user.dart';
 import 'package:mac_store_app/services/manage_http_response.dart';
+import 'package:mac_store_app/views/screens/authentication_screens/login_screen.dart';
+import 'package:mac_store_app/views/screens/main_screen.dart';
 
 class AuthController {
   Future<void> signUpUser({
@@ -36,6 +38,12 @@ class AuthController {
         response: response,
         context: context,
         onSuccess: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => const LoginScreen(),
+            ),
+          );
           showSnackBar(context, "Account has been created for you");
         },
       );
@@ -67,6 +75,13 @@ class AuthController {
         response: response,
         context: context,
         onSuccess: () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => const MainScreen(),
+            ),
+            (route) => false,
+          );
           showSnackBar(context, "Logged in");
         },
       );
