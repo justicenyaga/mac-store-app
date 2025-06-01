@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:mac_store_app/global_variables.dart';
@@ -34,6 +36,37 @@ class AuthController {
         context: context,
         onSuccess: () {
           showSnackBar(context, "Account has been created for you");
+        },
+      );
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
+  Future<void> signIn({
+    required BuildContext context,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var response = await http.post(
+        Uri.parse("$uri/api/signin"),
+        body: jsonEncode(
+          {
+            "email": email,
+            "password": password,
+          },
+        ),
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+      );
+      if (!context.mounted) return;
+      manageHttpResponse(
+        response: response,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "Logged in");
         },
       );
     } catch (e) {

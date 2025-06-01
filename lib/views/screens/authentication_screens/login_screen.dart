@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mac_store_app/controllers/auth_controller.dart';
 import 'package:mac_store_app/views/screens/authentication_screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,7 +11,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final AuthController _authController = AuthController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   TextFormField(
+                    onChanged: (value) {
+                      email = value;
+                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Enter your email";
@@ -104,6 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   TextFormField(
+                    onChanged: (value) {
+                      password = value;
+                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Enter your password";
@@ -137,11 +147,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 20),
                   InkWell(
-                    onTap: () {
+                    onTap: () async {
                       if (_formKey.currentState!.validate()) {
-                        print("pass");
-                      } else {
-                        print("failed");
+                        await _authController.signIn(
+                          context: context,
+                          email: email,
+                          password: password,
+                        );
                       }
                     },
                     child: Container(
