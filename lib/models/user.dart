@@ -47,4 +47,8 @@ class User {
       password: map["password"] as String? ?? "",
     );
   }
+
+  // Decodes JSON into a User Map and finally to User Object
+  factory User.fromJson(String source) =>
+      User.fromMap(json.decode(source) as Map<String, dynamic>);
 }
