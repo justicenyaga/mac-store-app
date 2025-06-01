@@ -34,4 +34,17 @@ class User {
 
   // Serialization: Convert User Map to a JSON string
   String toJson() => json.encode(toMap());
+
+  // Deserialization: Convert User Map to User Object
+  factory User.fromMap(Map<String, dynamic> map) {
+    return User(
+      id: map["id"] as String? ?? "",
+      fullName: map["fullName"] as String? ?? "",
+      email: map["email"] as String? ?? "",
+      state: map["state"] as String? ?? "",
+      city: map["city"] as String? ?? "",
+      locality: map["locality"] as String? ?? "",
+      password: map["password"] as String? ?? "",
+    );
+  }
 }
