@@ -31,4 +31,7 @@ class User {
       "password": password,
     };
   }
+
+  // Serialization: Convert User Map to a JSON string
+  String toJson() => json.encode(toMap());
 }
