@@ -19,4 +19,16 @@ class User {
     required this.password,
   });
 
+  // Serialization: Convert User object to a Map
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      "id": id,
+      "fullName": fullName,
+      "email": email,
+      "state": state,
+      "city": city,
+      "locality": locality,
+      "password": password,
+    };
+  }
 }
