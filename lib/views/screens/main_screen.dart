@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mac_store_app/views/screens/nav_screens/account_screen.dart';
 import 'package:mac_store_app/views/screens/nav_screens/cart_screen.dart';
+import 'package:mac_store_app/views/screens/nav_screens/category_screen.dart';
 import 'package:mac_store_app/views/screens/nav_screens/favorite_screen.dart';
 import 'package:mac_store_app/views/screens/nav_screens/home_screen.dart';
 import 'package:mac_store_app/views/screens/nav_screens/stores_screen.dart';
@@ -17,6 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const HomeScreen(),
     const FavoriteScreen(),
+    const CategoryScreen(),
     const StoresScreen(),
     const CartScreen(),
     const AccountScreen(),
@@ -49,6 +51,10 @@ class _MainScreenState extends State<MainScreen> {
               width: 25,
             ),
             label: "Favorite",
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: "Categories",
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
