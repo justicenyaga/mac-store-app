@@ -1,0 +1,31 @@
+@url = http://localhost:3000
+
+
+###
+
+# @name createCategory
+POST {{url}}/api/add-product HTTP/1.1
+Content-Type: application/json
+
+{
+  "productName": "Gucci",
+  "productPrice": 29.99,
+  "quantity": 100,
+  "description": "Gucci oversize best for you",
+  "category": "Clothes",
+  "subCategory": "shirt",
+  "image": [
+    "https://fastly.picsum.photos/id/790/200/300.jpg?hmac=FVbUQYv_h5C4v5_RAIja_q1c5UShyHhRu6C7DvjZM8U",
+    "https://fastly.picsum.photos/id/1076/200/300.jpg?hmac=v-yXySfuFZmvrYNvyAps4V02kbxa1_XuprgoVVsj4ZQ"
+  ]
+}
+
+###
+
+# @name getPopularProducts
+GET {{url}}/api/popular-products HTTP/1.1
+
+###
+
+# @name getRecommendedProducts
+GET {{url}}/api/recommended-products HTTP/1.1

@@ -1,0 +1,20 @@
+@url = http://localhost:3000
+
+
+###
+
+# @name createCategory
+POST {{url}}/api/subcategories HTTP/1.1
+Content-Type: application/json
+
+{
+  "categoryId": "fefsdf",
+  "categoryName": "Clothes",
+  "subCategoryName": "shirt",
+  "image": "https://fastly.picsum.photos/id/60/200/300.jpg?hmac=OeRKYl1vFStEdR8BEDJW4JRnkE3FdcrGzxxKT_omffg"
+}
+
+###
+
+# @name getSubCategories
+GET {{url}}/api/category/Clothes/subcategories HTTP/1.1

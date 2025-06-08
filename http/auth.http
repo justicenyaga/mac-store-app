@@ -1,0 +1,13 @@
+@url = http://localhost:3000
+
+
+###
+
+# @name Login
+POST {{url}}/api/signin HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "justiceevansmwema@gmail.com",
+  "password": "merammwn"
+}
