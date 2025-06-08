@@ -18,6 +18,9 @@ void manageHttpResponse({
     case 400: // bad request
       showSnackBar(context, json.decode(response.body)["msg"]);
       break;
+    case 403: // bad request
+      showSnackBar(context, json.decode(response.body)["msg"]);
+      break;
     case 500: // server error
       showSnackBar(context, json.decode(response.body)["error"]);
       break;
